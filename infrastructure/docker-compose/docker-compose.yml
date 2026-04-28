@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  # PostgreSQL with PGVector
+  postgres:
+    image: ankane/pgvector:v0.5.1
+    container_name: regula-postgres
+    environment:
+      POSTGRES_USER: regula
+      POSTGRES_PASSWORD: regula_password
+      POSTGRES_DB: regula_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - regula-network
+
+  # Redis for Caching
+  redis:
+    image: redis:7.2-alpine
+    container_name: regula-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - regula-network
+
+  # Zookeeper for Kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: regula-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - regula-network
+
+  # Kafka (Event Bus)
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: regula-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - regula-network
+
+  # MinIO (Object Storage)
+  minio:
+    image: minio/minio:RELEASE.2023-11-20T22-40-07Z
+    container_name: regula-minio
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - regula-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+
+networks:
+  regula-network:
+    driver: bridge
