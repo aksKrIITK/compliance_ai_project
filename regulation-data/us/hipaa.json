@@ -1,0 +1,12 @@
+{
+  "id": "us-hipaa",
+  "name": "HIPAA",
+  "jurisdiction": "US",
+  "category": "healthcare",
+  "version": "1996",
+  "summary": "Health Insurance Portability and Accountability Act — PHI safeguards and breach notification.",
+  "obligations": [
+    {"id": "admin-safeguards", "title": "Administrative safeguards", "severity": "high", "articles": ["§164.308"]},
+    {"id": "breach-notification", "title": "Breach notification within 60 days", "severity": "critical", "articles": ["§164.404"]}
+  ]
+}

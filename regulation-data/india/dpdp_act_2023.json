@@ -1,0 +1,15 @@
+{
+  "id": "in-dpdp-2023",
+  "name": "Digital Personal Data Protection Act, 2023",
+  "jurisdiction": "IN",
+  "category": "privacy",
+  "version": "2023",
+  "effective_date": "2024-01-01",
+  "summary": "India's comprehensive data protection law for digital personal data.",
+  "obligations": [
+    {"id": "consent", "title": "Valid consent before processing", "severity": "high", "articles": ["Section 6"]},
+    {"id": "data-principal-rights", "title": "Rights of data principals", "severity": "high", "articles": ["Section 11-14"]},
+    {"id": "breach-intimation", "title": "Data breach intimation to Board", "severity": "critical", "articles": ["Section 8"]}
+  ],
+  "penalties": {"max_fine_inr": 250000000000, "description": "Up to ₹250 crore per violation"}
+}

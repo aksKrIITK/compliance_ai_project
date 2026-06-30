@@ -1,0 +1,12 @@
+{
+  "id": "global-iso27001",
+  "name": "ISO/IEC 27001:2022",
+  "jurisdiction": "GLOBAL",
+  "category": "security",
+  "version": "2022",
+  "summary": "Information security management system standard with 93 controls in Annex A.",
+  "obligations": [
+    {"id": "a5-policies", "title": "Information security policies", "severity": "high", "articles": ["A.5"]},
+    {"id": "a8-asset-mgmt", "title": "Asset management", "severity": "medium", "articles": ["A.8"]}
+  ]
+}

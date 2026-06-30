@@ -1,0 +1,12 @@
+{
+  "id": "global-soc2",
+  "name": "SOC 2 Type II",
+  "jurisdiction": "GLOBAL",
+  "category": "security",
+  "version": "2017",
+  "summary": "Trust service criteria: security, availability, processing integrity, confidentiality, privacy.",
+  "obligations": [
+    {"id": "cc6-logical-access", "title": "Logical and physical access controls", "severity": "high", "articles": ["CC6"]},
+    {"id": "cc7-system-ops", "title": "System operations monitoring", "severity": "medium", "articles": ["CC7"]}
+  ]
+}

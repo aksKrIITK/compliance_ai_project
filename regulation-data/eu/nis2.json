@@ -1,0 +1,14 @@
+{
+  "id": "eu-nis2",
+  "name": "NIS2 Directive",
+  "jurisdiction": "EU",
+  "category": "cybersecurity",
+  "version": "2022/2555",
+  "effective_date": "2024-10-17",
+  "summary": "EU cybersecurity directive requiring risk management and incident reporting for essential entities.",
+  "obligations": [
+    {"id": "risk-management", "title": "Cybersecurity risk management measures", "severity": "high", "articles": ["Art. 21"]},
+    {"id": "incident-reporting", "title": "Significant incident reporting within 24h", "severity": "critical", "articles": ["Art. 23"]}
+  ],
+  "penalties": {"description": "Administrative fines and management liability"}
+}

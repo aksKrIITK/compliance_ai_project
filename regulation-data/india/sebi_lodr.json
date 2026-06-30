@@ -1,0 +1,12 @@
+{
+  "id": "in-sebi-lodr",
+  "name": "SEBI LODR Regulations",
+  "jurisdiction": "IN",
+  "category": "financial",
+  "version": "2015",
+  "summary": "Listing obligations and disclosure requirements for listed entities.",
+  "obligations": [
+    {"id": "continuous-disclosure", "title": "Continuous disclosure of material events", "severity": "critical", "articles": ["Reg 30"]},
+    {"id": "corporate-governance", "title": "Corporate governance report", "severity": "high", "articles": ["Reg 27"]}
+  ]
+}

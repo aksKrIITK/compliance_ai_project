@@ -1,0 +1,12 @@
+{
+  "id": "in-companies-act-2013",
+  "name": "Companies Act, 2013",
+  "jurisdiction": "IN",
+  "category": "corporate",
+  "version": "2013",
+  "summary": "Primary legislation governing incorporation, regulation and dissolution of companies in India.",
+  "obligations": [
+    {"id": "roc-filings", "title": "Registrar of Companies annual filings", "severity": "high", "articles": ["Section 92"]},
+    {"id": "board-meetings", "title": "Minimum board meetings per year", "severity": "medium", "articles": ["Section 173"]}
+  ]
+}

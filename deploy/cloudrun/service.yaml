@@ -1,0 +1,24 @@
+# Cloud Run: 512Mi RAM, 1 CPU, min-instances=0
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: regula-platform
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "0"
+        autoscaling.knative.dev/maxScale: "10"
+    spec:
+      containerConcurrency: 80
+      containers:
+        - image: gcr.io/PROJECT_ID/regula-platform
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+          env:
+            - name: APP_ENV
+              value: production

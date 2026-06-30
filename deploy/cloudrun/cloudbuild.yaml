@@ -1,0 +1,15 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/regula-platform", "-f", "deploy/cloudrun/Dockerfile", "."]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/regula-platform"]
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - regula-platform
+      - --image=gcr.io/$PROJECT_ID/regula-platform
+      - --region=us-central1
+      - --platform=managed
+      - --allow-unauthenticated

@@ -1,0 +1,13 @@
+{
+  "id": "us-ccpa",
+  "name": "California Consumer Privacy Act (CCPA/CPRA)",
+  "jurisdiction": "US",
+  "category": "privacy",
+  "version": "2020",
+  "summary": "California privacy law granting consumers rights over personal information.",
+  "obligations": [
+    {"id": "right-to-know", "title": "Right to know what personal info is collected", "severity": "high", "articles": ["§1798.100"]},
+    {"id": "right-to-delete", "title": "Right to delete personal information", "severity": "high", "articles": ["§1798.105"]},
+    {"id": "opt-out-sale", "title": "Right to opt-out of sale/sharing", "severity": "high", "articles": ["§1798.120"]}
+  ]
+}
